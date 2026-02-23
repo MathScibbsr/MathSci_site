@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MathSci | Admissions Open 2026 – AI & Data Science Projects</title>
+  <meta name="description" content="Admissions Open 2026: AI & Data Science projects for B.Tech, B.Sc, M.Sc, M.Tech. Domains: Finance, Climate, Healthcare, Environment, Sensor Systems." />
+  <style>
+    :root{
+      --bg:#0b1c2d;
+      --bg2:#0f2740;
+      --card:#112a44;
+      --text:#eaf0f7;
+      --muted:#b8c7d9;
+      --line:rgba(255,255,255,.12);
+      --accent:#ffd700;
+      --danger:#ff4c4c;
+      --ok:#39d98a;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, #173a61 0%, rgba(23,58,97,0) 60%),
+                  radial-gradient(1000px 700px at 90% 20%, #2a214f 0%, rgba(42,33,79,0) 55%),
+                  linear-gradient(180deg, var(--bg) 0%, #07131f 100%);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:26px 18px 70px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:10px 0 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(255,215,0,.95), rgba(255,76,76,.9));
+      box-shadow: 0 12px 26px rgba(255,215,0,.18);
+    }
+    .brand h1{margin:0; font-size:18px; letter-spacing:.2px}
+    .brand p{margin:2px 0 0; color:var(--muted); font-size:12px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:650;
+      font-size:13px;
+      display:inline-flex; align-items:center; gap:8px;
+      transition:.15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn.primary{
+      border-color: rgba(255,215,0,.35);
+      background: rgba(255,215,0,.12);
+    }
+    .btn.danger{
+      border-color: rgba(255,76,76,.35);
+      background: rgba(255,76,76,.10);
+    }
+
+    .hero{
+      margin-top:8px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      padding:26px 22px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid rgba(255,215,0,.25);
+      background: rgba(255,215,0,.10);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.25px;
+    }
+    .badge .dot{
+      width:8px; height:8px; border-radius:99px; background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,215,0,.10);
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      margin-top:16px;
+    }
+    @media (max-width: 860px){
+      .heroGrid{grid-template-columns:1fr}
+    }
+    .hero h2{
+      margin:12px 0 8px;
+      font-size:34px;
+      line-height:1.12;
+      letter-spacing:-.4px;
+    }
+    .hero h2 span{color:var(--accent)}
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      max-width: 60ch;
+    }
+    .hero .chips{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .chip{
+      font-size:12px; font-weight:700;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(17,42,68,.55);
+      border-radius: var(--radius);
+      padding:16px 16px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.25);
+    }
+    .statGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .stat{
+      padding:12px 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+    }
+    .stat .k{font-size:12px; color:var(--muted); margin:0 0 6px}
+    .stat .v{font-size:18px; font-weight:800; margin:0}
+    .hr{height:1px; background:var(--line); margin:16px 0}
+    .list{
+      margin:0; padding-left:18px; color:var(--muted); line-height:1.7;
+      font-size:14px;
+    }
+    .section{
+      margin-top:26px;
+    }
+    .section h3{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .section p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+    }
+    .grid4{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .grid4{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 520px){ .grid4{grid-template-columns:1fr} }
+
+    .domainCard h4{margin:2px 0 8px; font-size:15px}
+    .domainCard p{margin:0; color:var(--muted); font-size:13px; line-height:1.55}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; font-weight:800;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      margin-bottom:10px;
+    }
+    .tag .miniDot{width:7px; height:7px; border-radius:99px; background:var(--ok)}
+    .tag.climate .miniDot{background:#7aa7ff}
+    .tag.health .miniDot{background:#ff7ab6}
+    .tag.env .miniDot{background:#39d98a}
+
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .pricing{grid-template-columns:1fr} }
+    .priceCard{
+      position:relative;
+      overflow:hidden;
+    }
+    .priceTop{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      margin-bottom:10px;
+    }
+    .tier{
+      font-weight:900; letter-spacing:.3px;
+      font-size:14px; margin:0 0 6px;
+    }
+    .tierDesc{margin:0; color:var(--muted); font-size:13px}
+    .price{
+      font-weight:900;
+      font-size:22px;
+      margin:0;
+      color:var(--accent);
+      text-align:right;
+      white-space:nowrap;
+    }
+    .price small{display:block; color:var(--muted); font-size:11px; font-weight:700}
+    .ribbon{
+      position:absolute;
+      top:14px; right:-54px;
+      transform:rotate(35deg);
+      background: rgba(255,215,0,.18);
+      border:1px solid rgba(255,215,0,.30);
+      padding:8px 70px;
+      font-size:12px; font-weight:900;
+      color:var(--accent);
+    }
+    .priceCard.adv .price{color:#7aa7ff}
+    .priceCard.adv .ribbon{background: rgba(122,167,255,.14); border-color: rgba(122,167,255,.28); color:#cfe0ff}
+    .priceCard.pub .price{color:#ff7a7a}
+    .priceCard.pub .ribbon{background: rgba(255,76,76,.14); border-color: rgba(255,76,76,.28); color:#ffd1d1}
+
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 860px){ .contact{grid-template-columns:1fr} }
+
+    .footer{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding:10px 12px;
+      border-radius: 999px;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .pill b{color:var(--text)}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>MathSci</h1>
+          <p>AI • Data Science • Research Guidance</p>
+        </div>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn primary" href="#pricing">View Pricing</a>
+        <a class="btn" href="#projects">Domains</a>
+        <a class="btn danger" href="#contact">Contact Now</a>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="badge"><span class="dot" aria-hidden="true"></span> ADMISSIONS OPEN <b>2026</b></div>
+
+      <div class="heroGrid">
+        <div>
+          <h2>AI & Data Science <span>Projects</span><br/>for B.Tech | B.Sc | M.Sc | M.Tech</h2>
+          <p>
+            Build industry-ready and research-grade projects with mentorship from IIT graduate researchers.
+            Choose from Finance, Climate, Healthcare, Environment, and Sensor-based systems.
+          </p>
+
+          <div class="chips" aria-label="Highlights">
+            <span class="chip">50+ Project Themes</span>
+            <span class="chip">Publication Support</span>
+            <span class="chip">Code + Report + Deployment</span>
+            <span class="chip">1:1 Mentorship</span>
+          </div>
+
+          <div class="hr"></div>
+
+          <ul class="list">
+            <li><b>Limited Seats</b> • Early registration recommended</li>
+            <li>Customized projects available for Advanced & Publication tracks</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="statGrid">
+            <div class="stat">
+              <p class="k">Portfolio Size</p>
+              <p class="v">52 Projects</p>
+            </div>
+            <div class="stat">
+              <p class="k">Tracks</p>
+              <p class="v">Basic • Advanced • Publication</p>
+            </div>
+            <div class="stat">
+              <p class="k">Focus</p>
+              <p class="v">Research + Industry</p>
+            </div>
+            <div class="stat">
+              <p class="k">Support</p>
+              <p class="v">Viva + Deployment</p>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <p style="margin:0; color:var(--muted); line-height:1.6; font-size:13px;">
+            Want a quick shortlist? Message your domain + timeline and we’ll recommend the best project options.
+          </p>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+            <a class="pill" href="#contact"><b>📞</b> 9337699174</a>
+            <a class="pill" href="mailto:mathsci.bbsr@gmail.com"><b>📧</b> mathsci.bbsr@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Domains -->
+    <section class="section" id="projects">
+      <h3>Domains Offered</h3>
+      <p>
+        Choose a domain based on your department and future goals (placements, higher studies, or publications).
+      </p>
+
+      <div class="grid4">
+        <div class="card domainCard">
+          <div class="tag"><span class="miniDot" aria-hidden="true"></span> Finance</div>
+          <h4>Financial Forecasting & Trading</h4>
+          <p>Stock prediction, ensemble SVR, volatility, regime detection, RL portfolio optimization.</p>
+        </div>
+
+        <div class="card domainCard">
+          <div class="tag climate"><span class="miniDot" aria-hidden="true"></span> Climate</div>
+          <h4>Rainfall • AQI • CO₂</h4>
+          <p>Extreme rainfall, AQI multi-step forecasting, heatwave warnings, anomaly detection.</p>
+        </div>
+
+        <div class="card domainCard">
+          <div class="tag health"><span class="miniDot" aria-hidden="true"></span> Healthcare</div>
+          <h4>Medical AI</h4>
+          <p>Eye disease detection, tumor classification/segmentation, X-ray diagnosis, XAI.</p>
+        </div>
+
+        <div class="card domainCard">
+          <div class="tag env"><span class="miniDot" aria-hidden="true"></span> Environment</div>
+          <h4>GIS • Water • Energy</h4>
+          <p>Flood risk mapping, WQI prediction, pollution hotspots, renewable forecasting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio list (website-ready; replace/extend as needed) -->
+    <section class="section" id="portfolio">
+      <h3>Project Portfolio (Sample List)</h3>
+      <p>Below is a compact sample list. You can replace this block with your full 52-project table or link to the PDF brochure.</p>
+
+      <div class="card">
+        <table style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr style="text-align:left;">
+              <th style="padding:10px; border-bottom:1px solid var(--line);">Domain</th>
+              <th style="padding:10px; border-bottom:1px solid var(--line);">Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px; border-bottom:1px solid var(--line); color:var(--muted); font-weight:800;">Finance</td>
+              <td style="padding:10px; border-bottom:1px solid var(--line); color:var(--muted);">Ensemble SVR multi-day forecasting, RL portfolio optimization, NLP sentiment stock prediction</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; border-bottom:1px solid var(--line); color:var(--muted); font-weight:800;">Climate</td>
+              <td style="padding:10px; border-bottom:1px solid var(--line); color:var(--muted);">Extreme rainfall, AQI multi-step forecasting, CO₂ trends, anomaly detection</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; border-bottom:1px solid var(--line); color:var(--muted); font-weight:800;">Healthcare</td>
+              <td style="padding:10px; border-bottom:1px solid var(--line); color:var(--muted);">Diabetic retinopathy, brain tumor MRI classification, U-Net segmentation, explainable AI</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; color:var(--muted); font-weight:800;">Environment</td>
+              <td style="padding:10px; color:var(--muted);">Flood risk mapping (GIS + ML), groundwater forecasting, WQI prediction, renewable forecasting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <h3>Pricing Tiers</h3>
+      <p>Clear tracks for placements, research, and publication goals. (You can edit pricing values anytime.)</p>
+
+      <div class="pricing">
+        <div class="card priceCard basic">
+          <div class="ribbon">POPULAR</div>
+          <div class="priceTop">
+            <div>
+              <p class="tier">BASIC TRACK</p>
+              <p class="tierDesc">Industry-ready implementation</p>
+            </div>
+            <p class="price">₹8k–₹15k<small>per student</small></p>
+          </div>
+          <ul class="list">
+            <li>Topic selection + dataset support</li>
+            <li>Implementation + report (IEEE format)</li>
+            <li>Viva preparation</li>
+          </ul>
+          <div class="hr"></div>
+          <p style="margin:0; color:var(--muted); font-size:13px;">Duration: 3–4 months</p>
+        </div>
+
+        <div class="card priceCard adv">
+          <div class="ribbon">BEST VALUE</div>
+          <div class="priceTop">
+            <div>
+              <p class="tier">ADVANCED TRACK</p>
+              <p class="tierDesc">Research-oriented project</p>
+            </div>
+            <p class="price">₹20k–₹35k<small>per student</small></p>
+          </div>
+          <ul class="list">
+            <li>Model upgrades (ensemble / hybrid / RL)</li>
+            <li>Benchmarking + advanced metrics</li>
+            <li>Conference-style paper drafting</li>
+          </ul>
+          <div class="hr"></div>
+          <p style="margin:0; color:var(--muted); font-size:13px;">Duration: 4–6 months</p>
+        </div>
+
+        <div class="card priceCard pub">
+          <div class="ribbon">PREMIUM</div>
+          <div class="priceTop">
+            <div>
+              <p class="tier">PUBLICATION TRACK</p>
+              <p class="tierDesc">Scopus / IEEE journal target</p>
+            </div>
+            <p class="price">₹50k–₹90k<small>APC excluded</small></p>
+          </div>
+          <ul class="list">
+            <li>Novel method + experiment design</li>
+            <li>Manuscript + journal targeting</li>
+            <li>Revision + reviewer response support</li>
+          </ul>
+          <div class="hr"></div>
+          <p style="margin:0; color:var(--muted); font-size:13px;">Duration: 6–8 months</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h3>Contact & Enrollment</h3>
+      <p>Send your department, preferred domain, and timeline. We’ll suggest the best-fit project options.</p>
+
+      <div class="contact">
+        <div class="card">
+          <h4 style="margin:0 0 10px;">Quick Contact</h4>
+          <p style="margin:0; color:var(--muted); line-height:1.7;">
+            📧 <a href="mailto:mathsci.bbsr@gmail.com">mathsci.bbsr@gmail.com</a><br/>
+            📞 <a href="tel:+919337699174">9337699174</a>
+          </p>
+          <div class="hr"></div>
+          <p style="margin:0; color:var(--muted); font-size:13px;">
+            Limited seats • Early registration recommended
+          </p>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 10px;">WhatsApp Forward Text</h4>
+          <p style="margin:0; color:var(--muted); line-height:1.7; font-size:13px;">
+            🚀 ADMISSIONS OPEN 2026<br/>
+            AI & Data Science Projects (B.Tech | B.Sc | M.Sc | M.Tech)<br/>
+            Finance | Climate | Healthcare | Environment | Sensor Systems<br/>
+            ✔ 50+ Projects ✔ Publication Support ✔ IIT Mentorship<br/>
+            📧 mathsci.bbsr@gmail.com | 📞 9337699174
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 MathSci • AI & Data Science Projects • Designed for Instagram / WhatsApp / Website landing page
+    </div>
+  </div>
+</body>
+</html>
